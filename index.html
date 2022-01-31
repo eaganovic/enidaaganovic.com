@@ -1,9 +1,82 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="description" content="Enida Aganovic is a cybersecurity professional based in Denver, CO. This is her personal website.">
+    <meta name="keywords" content="enida aganovic,cybersecurity professional,denver">
+    <meta property="og:site_name" content="Enida Aganovic">
+    <meta property="og:title" content="Enida Aganovic">
+    <meta property="og:description" content="Enida Aganovic is a cybersecurity professional based in Denver, CO. This is her personal website.">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="https://enidaaganovic.com/headshot.jpg">
+    <meta property="og:url" content="https://enidaaganovic.com">
+    <link rel="canonical" href="https://enidaaganovic.com">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="theme-color" content="#008080" />
     <title>Enida Aganovic</title>
+    <link rel="stylesheet" href="./pico.min.css">
+    <style>
+      html {
+        height: 100vh;
+        width: 100vw;
+      }
+
+      body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button {
+        display: contents;
+      }
+
+      h1 {
+        margin-bottom: 0.5em;
+      }
+    </style>
   </head>
   <body>
-    <h1>Enida Aganovic</h1>
-    <p>Hello! This is my personal website. It's under construction.</p>
+    <main class="container">
+      <h1>Enida Aganovic</h1>
+      <p>Hi, I'm Enida! I'm a <button title="A button that reveals my profession!" onclick="onClick()"><kbd>click to decrypt 🔒</kbd></button> based in Colorado. I love learning, hiking, and checking out the local food scene in Denver. Feel free to check out my links below and thanks for stopping by!</p>
+      <section>
+        <a role="button" href="https://www.linkedin.com/in/enida-aganovic/" target="_blank" title="Link to my LinkedIn account">My LinkedIn</a>
+        <a role="button" href="https://www.credly.com/users/enida-aganovic/badges" target="_blank" title="Link to my Credly account">My Certifications</a>
+      </section>
+    </main>
   </body>
+  <script>
+    async function onClick() {
+      if (!confirm('Are you sure you want to decrypt this?')) {
+        return;
+      }
+
+      const shuffledWords = [
+        /<button.+<\/button>/,
+        "8fced00b6ce281456d69daef5f",
+        "2b33eaf1a4a29b5923ebe5f1f2",
+        "c54f5886c7a3 a941a4c4fd0c0",
+        "1cddef61b8be963bf4c1e2b081",
+        "1c037ce3f1835fddf6ef6c223 ",
+        "18d63be10ad544a04a22c944de",
+        "e01d6d864ec69b797a58edae92",
+        "e6a44ad8fdbf fff5fc9b57770",
+        "31e6ee5b1c7f2d2ea9bddfae5e",
+        "2c33eea4c0c9e9ab505c7cdba ",
+        "cybersecurity professional",
+      ].map((text, i) => i ? `<kbd>${text}</kbd>` : text);
+
+      for (let i = 0; i < shuffledWords.length - 1; i++) {
+        const body = document.querySelector('p');
+        const oldText = body.innerHTML;
+        const newText = oldText.replace(shuffledWords[i], shuffledWords[i + 1]);
+        body.innerHTML = newText;
+        await new Promise(resolve => setTimeout(resolve, 75));
+      }
+    }
+  </script>
 </html>
